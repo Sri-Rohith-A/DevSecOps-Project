@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven "Jenkins-maven"
+        maven "Maven"
     }
     stages{
         stage("dev"){
