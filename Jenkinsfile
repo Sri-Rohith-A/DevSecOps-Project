@@ -3,11 +3,18 @@ pipeline{
     tools{
         maven "Maven"
     }
+    environment{
+        dockerImage = ''
+        registry = 'asr2000/BookStoreApp'
+    }
     stages{
         stage("dev"){
             steps{
                 sh "mvn -B -DskipTests clean package"
                 echo "installed" 
+                script{
+                    dockerImage = docker.build registry
+                }
             }
         }
         stage("test"){
