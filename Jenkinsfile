@@ -6,6 +6,7 @@ pipeline{
     environment{
         dockerImage = ''
         registry = 'asr2000/bookstoreapp'
+        registryCredential = 'Docker'
     }
     stages{
         stage("dev"){
@@ -15,6 +16,9 @@ pipeline{
                 //sh "sudo apt-get install docker-engine -y"
                 script{
                     dockerImage = docker.build registry
+                    docker.withRegistry('', registryCredential){
+                        dockerImage.push()
+                    }
                 }
             }
         }
