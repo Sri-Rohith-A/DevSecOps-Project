@@ -6,8 +6,8 @@ pipeline{
     stages{
         stage("dev"){
             steps{
-                sh 'mvn -B -DskipTests clean package'
-                echo ' installed ' 
+                sh "mvn -B -DskipTests clean package"
+                echo "installed" 
             }
         }
         stage("test"){
