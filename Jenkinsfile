@@ -12,10 +12,10 @@ pipeline{
             steps{
                 sh "mvn -B -DskipTests clean package"
                 echo "installed" 
-                sh "sudo apt-get install docker-engine -y"
-//                 script{
-//                     dockerImage = docker.build registry
-//                 }
+                //sh "sudo apt-get install docker-engine -y"
+                script{
+                    dockerImage = docker.build registry
+                }
             }
         }
         stage("test"){
