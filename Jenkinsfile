@@ -12,9 +12,10 @@ pipeline{
             steps{
                 sh "mvn -B -DskipTests clean package"
                 echo "installed" 
-                script{
-                    dockerImage = docker.build registry
-                }
+                sh "docker --version"
+//                 script{
+//                     dockerImage = docker.build registry
+//                 }
             }
         }
         stage("test"){
