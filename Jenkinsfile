@@ -5,7 +5,7 @@ pipeline{
     }
     environment{
         dockerImage = ''
-        registry = 'asr2000/BookStoreApp'
+        registry = 'asr2000/bookstoreapp'
     }
     stages{
         stage("dev"){
