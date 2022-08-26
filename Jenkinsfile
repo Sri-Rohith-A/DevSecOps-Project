@@ -31,6 +31,9 @@ pipeline{
         }
         stage("prod"){
             steps{
+                script{
+                    kubernetesDeploy(configs: "bookapi.yaml", kubeconfigId: "Kubernetes")
+                }
                 echo "prod"
             }
         }
