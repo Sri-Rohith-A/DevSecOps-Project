@@ -14,14 +14,14 @@ pipeline{
     stages{
         stage("dev"){
             steps{
-                //sh "mvn -B -DskipTests clean package"
+                sh "mvn -B -DskipTests clean package"
                 echo "installed" 
-//                 script{
-//                     dockerImage = docker.build registry
-//                     docker.withRegistry('', registryCredential){
-//                         dockerImage.push()
-//                     }
-//                 }
+                script{
+                    dockerImage = docker.build registry
+                    docker.withRegistry('', registryCredential){
+                        dockerImage.push()
+                    }
+                }
             }
         }
         stage("test"){
