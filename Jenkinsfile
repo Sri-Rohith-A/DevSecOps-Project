@@ -32,6 +32,8 @@ pipeline{
         stage("prod"){
             steps{
                 script{
+                    kubernetesDeploy(configs: "configmap.yaml", kubeconfigId: "Kubernetes")
+                    kubernetesDeploy(configs: "mongodepl.yaml", kubeconfigId: "Kubernetes")
                     kubernetesDeploy(configs: "bookapi.yaml", kubeconfigId: "Kubernetes")
                 }
                 echo "Prod"
