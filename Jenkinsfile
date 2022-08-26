@@ -35,6 +35,7 @@ pipeline{
                     kubernetesDeploy(configs: "configmap.yaml", kubeconfigId: "Kubernetes")
                     kubernetesDeploy(configs: "mongodepl.yaml", kubeconfigId: "Kubernetes")
                     kubernetesDeploy(configs: "bookapi.yaml", kubeconfigId: "Kubernetes")
+                    kubectl expose deployment booksapp  --type=NodePort
                 }
                 echo "Prod"
             }
