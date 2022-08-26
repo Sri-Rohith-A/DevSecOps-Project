@@ -8,7 +8,7 @@ pipeline{
     }
     environment{
         dockerImage = ''
-        registry = 'asr2000/tester'
+        registry = 'asr2000/testy'
         registryCredential = 'Docker'
     }
     stages{
