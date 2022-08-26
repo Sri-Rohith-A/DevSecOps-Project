@@ -34,7 +34,7 @@ pipeline{
                 script{
                     kubernetesDeploy(configs: "bookapi.yaml", kubeconfigId: "Kubernetes")
                 }
-                echo "prod"
+                echo "Prod"
             }
         }
     }
