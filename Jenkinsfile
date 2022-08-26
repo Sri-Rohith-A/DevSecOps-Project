@@ -1,4 +1,7 @@
 pipeline{
+    triggers {
+        pollSCM('*/1 * * * *')
+    }
     agent any
     tools{
         maven "Maven"
@@ -13,7 +16,6 @@ pipeline{
             steps{
                 sh "mvn -B -DskipTests clean package"
                 echo "installed" 
-                //sh "sudo apt-get install docker-engine -y"
                 script{
                     dockerImage = docker.build registry
                     docker.withRegistry('', registryCredential){
